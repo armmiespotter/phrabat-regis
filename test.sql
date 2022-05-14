@@ -1,0 +1,36 @@
+UPDATE
+    person
+SET
+    `firstname` = 'asfds',
+    `lastname` = 'sadf',
+    `age` = '11',
+    `degree` = 'sadf',
+    `career` = 'sadf',
+    `tel` = 'sdaf',
+    `father_firstname` = 'saf',
+    `father_lastname` = 'sdfa',
+    `mother_firstname` = 'asdf',
+    `mother_lastname` = 'sfadf',
+    `address` = 'sfaf',
+    `current_address` = 'asfs',
+    `is_enter` = 0,
+    `enter_reason` = '',
+    `enter_date` = NULL,
+    `is_leave` = 1,
+    `leave_reason` = 'resign',
+    `leave_date` = '1970-01-01',
+    `is_novice` = 1,
+    `novice_date` = '1970-01-01',
+    `novice_patron` = '',
+    `novice_temple` = '',
+    `novice_address` = '',
+    `is_monk` = 1,
+    `monk_date` = '1970-01-01',
+    `monk_patron` = '',
+    `monk_temple` = '',
+    `monk_address` = '',
+    `note` = 'asfsa',
+    `update_by` = '1',
+    `update_date` = NOW()
+WHERE
+    id = 9

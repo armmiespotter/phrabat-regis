@@ -34,7 +34,7 @@ include_once '../../components/Header.php';
                                 </div>
                                 <div class="col-md-4 mb-3">
                                     <label for="age" class="form-label">อายุ</label>
-                                    <input type="number" class="form-control" id="age" name="age" required>
+                                    <input type="text" maxlength="2" class="form-control" id="age" name="age" required>
                                 </div>
                             </div>
                             <div class="row">

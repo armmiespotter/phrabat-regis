@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once '../configs/config.php';
 require_once './Db.php';
 
@@ -29,35 +30,35 @@ $current_address = $mysqli->real_escape_string($_POST['current_address']);
 // In
 if (isset($_POST['is_enter'])) {
     echo 'test';
-    $is_enter = true;
+    $is_enter = 1;
     $enter_reason = $mysqli->real_escape_string($_POST['enter_reason']);
     $enter_date = $mysqli->real_escape_string($_POST['enter_date']);
 } else {
-    $is_enter = false;
+    $is_enter = 0;
     $enter_reason = null;
     $enter_date = null;
 }
 
 // Out
 if (isset($_POST['is_leave'])) {
-    $is_leave = true;
+    $is_leave = 1;
     $leave_reason = $mysqli->real_escape_string($_POST['leave_reason']);
     $leave_date = $mysqli->real_escape_string($_POST['leave_date']);
 } else {
-    $is_leave = false;
+    $is_leave = 0;
     $leave_reason = null;
     $leave_date = null;
 }
 
 // Novice
 if (isset($_POST['is_novice'])) {
-    $is_novice = true;
+    $is_novice = 1;
     $novice_date = $mysqli->real_escape_string($_POST['novice_date']);
     $novice_patron = $mysqli->real_escape_string($_POST['novice_patron']);
     $novice_temple = $mysqli->real_escape_string($_POST['novice_temple']);
     $novice_address = $mysqli->real_escape_string($_POST['novice_address']);
 } else {
-    $is_novice = false;
+    $is_novice = 0;
     $novice_date = null;
     $novice_patron = null;
     $novice_temple = null;
@@ -66,13 +67,13 @@ if (isset($_POST['is_novice'])) {
 
 // Monk
 if (isset($_POST['is_monk'])) {
-    $is_monk = true;
+    $is_monk = 1;
     $monk_date = $mysqli->real_escape_string($_POST['monk_date']);
     $monk_patron = $mysqli->real_escape_string($_POST['monk_patron']);
     $monk_temple = $mysqli->real_escape_string($_POST['monk_temple']);
     $monk_address = $mysqli->real_escape_string($_POST['monk_address']);
 } else {
-    $is_monk = false;
+    $is_monk = 0;
     $monk_date = null;
     $monk_patron = null;
     $monk_temple = null;
@@ -88,77 +89,77 @@ $create_by = $_SESSION['id'];
 $update_by = $_SESSION['id'];
 // $update_date = $mysqli->real_escape_string($_POST['update_date']);
 $sqlStr = "INSERT INTO person (
-    `firstname`,
-    `lastname`,
-    `age`,
-    `degree`,
-    `career`,
-    `tel`,
-    `father_firstname`,
-    `father_lastname`,
-    `mother_firstname`,
-    `mother_lastname`,
-    `image`,
-    `address`,
-    `current_address`,
-    `is_enter`,
-    `enter_reason`,
-    `enter_date`,
-    `is_leave`,
-    `leave_reason`,
-    `leave_date`,
-    `is_novice`,
-    `novice_date`,
-    `novice_patron`,
-    `novice_temple`,
-    `novice_address`,
-    `is_monk`,
-    `monk_date`,
-    `monk_patron`,
-    `monk_temple`,
-    `monk_address`,
-    `note`,
-    `create_by`,
-    `create_date`,
-    `update_by`,
-    `update_date`
+    `firstname`
+    ,`lastname`
+    ,`age`
+    ,`degree`
+    ,`career`
+    ,`tel`
+    ,`father_firstname`
+    ,`father_lastname`
+    ,`mother_firstname`
+    ,`mother_lastname`
+    ,`image`
+    ,`address`
+    ,`current_address`
+    ,`is_enter`
+    ,`enter_reason`
+    ,`enter_date`
+    ,`is_leave`
+    ,`leave_reason`
+    ,`leave_date`
+    ,`is_novice`
+    ,`novice_date`
+    ,`novice_patron`
+    ,`novice_temple`
+    ,`novice_address`
+    ,`is_monk`
+    ,`monk_date`
+    ,`monk_patron`
+    ,`monk_temple`
+    ,`monk_address`
+    ,`note`
+    ,`create_by`
+    ,`create_date`
+    ,`update_by`
+    ,`update_date`
 ) VALUES (
-    '$firstname',
-    '$lastname',
-    '$age',
-    '$degree',
-    '$career',
-    '$tel',
-    '$father_firstname',
-    '$father_lastname',
-    '$mother_firstname',
-    '$mother_lastname',
-    '$image',
-    '$address',
-    '$current_address',
-    '$is_enter',
-    '$enter_reason',
-    '$enter_date',
-    '$is_leave',
-    '$leave_reason',
-    '$leave_date',
-    '$is_novice',
-    '$novice_date',
-    '$novice_patron',
-    '$novice_temple',
-    '$novice_address',
-    '$is_monk',
-    '$monk_date',
-    '$monk_patron',
-    '$monk_temple',
-    '$monk_address',
-    '$note',
-    '$create_by',
-    NOW(),
-    '$update_by',
-    NOW()
+    '$firstname'
+    ,'$lastname'
+    ,'$age'
+    ,'$degree'
+    ,'$career'
+    ,'$tel'
+    ,'$father_firstname'
+    ,'$father_lastname'
+    ,'$mother_firstname'
+    ,'$mother_lastname'
+    ,'$image'
+    ,'$address'
+    ,'$current_address'
+    ,$is_enter
+    ,'$enter_reason'
+    " . ($enter_date == NULL ? ", NULL" : ",'$enter_date'") . "
+    ,$is_leave
+    ,'$leave_reason'
+    " . ($leave_date == NULL ? ", NULL" : ",'$leave_date'") . "
+    ,$is_novice
+    " . ($novice_date == NULL ? ", NULL" : ",'$novice_date'") . "
+    ,'$novice_patron'
+    ,'$novice_temple'
+    ,'$novice_address'
+    ,$is_monk
+    " . ($monk_date == NULL ? ", NULL" : ",'$monk_date'") . "
+    ,'$monk_patron'
+    ,'$monk_temple'
+    ,'$monk_address'
+    ,'$note'
+    ,'$create_by'
+    ,NOW()
+    ,'$update_by'
+    ,NOW()
 )";
-
+// echo $sqlStr;
 if (!$mysqli->query($sqlStr)) {
     echo $mysqli->error;
 } else {
