@@ -122,9 +122,9 @@ if ($_FILES['image']['size'] != 0) {
 }
 
 $sqlStr .= "\nWHERE id = $id";
-echo $sqlStr;
-// if (!$mysqli->query($sqlStr)) {
-//     echo $mysqli->error;
-// } else {
-//     header("location: ../pages/persons/");
-// }
+// echo $sqlStr;
+if (!$mysqli->query($sqlStr)) {
+    echo $mysqli->error;
+} else {
+    header("location: ../pages/persons/");
+}
