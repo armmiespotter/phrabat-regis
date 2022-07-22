@@ -25,6 +25,9 @@ include_once '../../components/Header.php';
                                 ทะเบียนประวัติ
                             </div>
                         </div>
+                        <div class="d-flex">
+                            <a href="exportPDF.php?id=<?= $item['id'] ?>" class="btn btn-sm btn-secondary"><i class="fa-solid fa-file-pdf"></i> PDF</a>
+                        </div>
                     </div>
                     <div class="card-body">
                         <div class="row">
