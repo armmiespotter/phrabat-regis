@@ -1,5 +1,5 @@
 <?php
-$BASE_URI = '//localhost/phrabat';
+$BASE_URI = '//localhost/phrabat-regis';
 $DB_HOST = 'localhost';
 $DB_USERNAME = 'root';
 $DB_PASSWORD = '';

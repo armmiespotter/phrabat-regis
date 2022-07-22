@@ -43,6 +43,7 @@ include_once '../../components/Header.php';
                                 <td>
                                     <a href="view.php?id=<?= $item['id'] ?>" class="btn btn-sm btn-primary"><i class="fas fa-external-link-alt"></i> ดูข้อมูล</a>
                                     <a href="update.php?id=<?= $item['id'] ?>" class="btn btn-sm btn-secondary"><i class="fas fa-pencil-alt"></i> แก้ไขข้อมูล</a>
+                                    <a href="exportPDF.php?id=<?= $item['id'] ?>" class="btn btn-sm btn-secondary"><i class="fa-solid fa-file-pdf"></i> PDF</a>
                                     <button class="btn btn-sm btn-danger" onclick="deletePerson(<?= $item['id'] ?>)"><i class="fas fa-trash-alt"></i> ลบข้อมูล</button>
                                 </td>
                             </tr>

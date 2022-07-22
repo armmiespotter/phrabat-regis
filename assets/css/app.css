@@ -19,3 +19,26 @@ body {
   cursor: pointer;
   opacity: 1;
 }
+
+p.ep-pdf {
+  font-weight: bold;
+  font-size: 20px;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+p.ep-pdf span {
+  font-weight: 400;
+}
+
+.pdf-subtitle {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.pdf-image {
+  max-height: 150px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
